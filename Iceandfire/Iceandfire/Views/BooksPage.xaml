@@ -6,9 +6,29 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:vm="using:Iceandfire.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <vm:BooksPageViewModel x:Name="BooksPageVM"/>
+    </Page.DataContext>
+    
     <Grid Background="Yellow">
 
+        <ListView ItemsSource="{Binding NotifyBooks.Result}" >
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <StackPanel Height="auto" Padding="5">
+                        <TextBlock Text="{Binding name}"  Style="{ThemeResource BaseTextBlockStyle}"/>
+
+                    </StackPanel>
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
     </Grid>
 </Page>
