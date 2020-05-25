@@ -97,8 +97,12 @@
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\NotifyTaskCompletion.cs" />
     <Compile Include="Services\Service.cs" />
+    <Compile Include="ViewModels\BookDetailsPageViewModel.cs" />
     <Compile Include="ViewModels\BooksPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="Views\BookDetailsPage.xaml.cs">
+      <DependentUpon>BookDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BooksPage.xaml.cs">
       <DependentUpon>BooksPage.xaml</DependentUpon>
     </Compile>
@@ -131,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\BookDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BooksPage.xaml">
       <SubType>Designer</SubType>

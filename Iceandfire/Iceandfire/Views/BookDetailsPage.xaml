@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="Iceandfire.Views.BookDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Iceandfire.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:vm="using:Iceandfire.ViewModels"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Name: " FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="{Binding NotifyBook.Result.name}"  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="4"></TextBlock>
+
+        <TextBlock Text="ISBN: " FontWeight="Bold" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="{Binding Book.isbn}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Text="Authors:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+        <ListView ItemsSource="{Binding Book.authors }" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
+            <TextBlock Text="{Binding}"></TextBlock>
+        </ListView>
+
+        <TextBlock Text="Page numbers: "  Grid.Row="3" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+        <TextBlock Text="{Binding Book.numberOfPages}"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Text="Publisher: "  Grid.Row="4" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+        <TextBlock Text="{Binding Book.publisher}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Text="Country: " Grid.Row="5" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+        <TextBlock Text="{Binding Book.country}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Text="Media Type: " FontWeight="Bold" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+        <TextBlock Text="{Binding Book.mediaType}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Text="Released date: " FontWeight="Bold" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+        <TextBlock Text="{Binding Book.released}"  Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Text="Characters: " FontWeight="Bold" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="4"></TextBlock>
+        <Button Content="Show them"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" CornerRadius="3"/>
+
+        <TextBlock Text="Pov Characters: " FontWeight="Bold" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"></TextBlock>
+        <Button Content="Show them"  Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" CornerRadius="3"/>
+
+
+
+
+    </Grid>
+</Page>

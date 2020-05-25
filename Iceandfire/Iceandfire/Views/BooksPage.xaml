@@ -15,9 +15,9 @@
     
     <Grid Background="Yellow">
 
-        <ListView ItemsSource="{Binding NotifyBooks.Result}" >
+        <ListView ItemsSource="{Binding NotifyBooks.Result}"  ItemClick="ListView_ItemClick" IsItemClickEnabled="True">
             <ListView.ItemTemplate>
-
+    
                 <DataTemplate>
 
                     <StackPanel Height="auto" Padding="5">

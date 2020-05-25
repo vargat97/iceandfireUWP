@@ -14,5 +14,10 @@ namespace Iceandfire.Services
         {
             return await GetAsync<List<Book>>(new Uri(serverUrl, "api/books?pageSize=5"));
         }
+        //Get 1 book by uri
+        public async Task<Book> GetBookAsync(string url)
+        {
+            return await GetAsync<Book>(new Uri(url));
+        }
     }
 }
