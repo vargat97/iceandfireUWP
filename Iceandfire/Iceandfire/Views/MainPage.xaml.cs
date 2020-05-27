@@ -15,7 +15,9 @@ namespace Iceandfire.Views
         {
             var label = args.InvokedItem.ToString();
             var pageType =
-                label == "Books" ? typeof(BooksPage) : null;
+                label == "Books" ? typeof(BooksPage) : 
+                label == "Characters" ? typeof(CharactersPage) : 
+                label == "Houses" ? typeof(HousesPage) : null;
             if(pageType != null && pageType != ContentFrame.CurrentSourcePageType)
             {
                 ContentFrame.Navigate(pageType);

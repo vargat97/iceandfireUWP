@@ -21,18 +21,17 @@ namespace Iceandfire.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BooksPage : Page
+    public sealed partial class CharactersPage : Page
     {
-        public BooksPage()
+        public CharactersPage()
         {
             this.InitializeComponent();
         }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var book = (Book)e.ClickedItem;    
-           Frame.Navigate(typeof(BookDetailsPage),book);
-           
+            var character = (Character)e.ClickedItem;
+            Frame.Navigate(typeof(CharacterDetailsPage), character);
         }
     }
 }

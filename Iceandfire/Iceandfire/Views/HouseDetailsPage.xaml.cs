@@ -1,4 +1,5 @@
 ﻿using Iceandfire.Models;
+using Iceandfire.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,18 +22,18 @@ namespace Iceandfire.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BooksPage : Page
+    public sealed partial class HouseDetailsPage : Page
     {
-        public BooksPage()
+        public HouseDetailsPage()
         {
             this.InitializeComponent();
         }
 
-        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var book = (Book)e.ClickedItem;    
-           Frame.Navigate(typeof(BookDetailsPage),book);
-           
+            var url = (House)e.Parameter;
+            DataContext = new HouseDetailsPageViewModel(url);
+            base.OnNavigatedTo(e);
         }
     }
 }

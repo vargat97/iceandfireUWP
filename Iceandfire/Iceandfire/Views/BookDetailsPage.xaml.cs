@@ -1,4 +1,5 @@
-﻿using Iceandfire.ViewModels;
+﻿using Iceandfire.Models;
+using Iceandfire.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,10 +24,25 @@ namespace Iceandfire.Views
     /// </summary>
     public sealed partial class BookDetailsPage : Page
     {
-        public BookDetailsPage(string url)
-        {
-            DataContext = new BookDetailsPageViewModel(url);
+        public BookDetailsPage()
+        {           
             this.InitializeComponent();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var url = (Book)e.Parameter;
+            DataContext = new BookDetailsPageViewModel(url);
+            base.OnNavigatedTo(e);
+        }
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void ListView_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }
