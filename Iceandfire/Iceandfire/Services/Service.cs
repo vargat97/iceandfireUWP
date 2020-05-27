@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Iceandfire.Services
 {
-    class Service
+    public class Service
     {
 
         protected readonly Uri serverUrl = new Uri("https://www.anapioficeandfire.com/");

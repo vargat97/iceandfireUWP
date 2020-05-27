@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace Iceandfire.Services
 {
-    class BookService : Service
+    public class BookService : Service
     {
         //Get all the Books async
         public async Task<List<Book>> GetBooksAsync()
         {
             return await GetAsync<List<Book>>(new Uri(serverUrl, "api/books?pageSize=5"));
         }
+        public async Task<List<Book>> GetBooksAsync(string uri)
+        {
+            return await GetAsync<List<Book>>(new Uri(uri));
+        }
+
         //Get 1 book by uri
         public async Task<Book> GetBookAsync(string url)
         {

@@ -13,13 +13,20 @@ namespace Iceandfire.ViewModels
 {
     public class BooksPageViewModel
     {
-   
+        
         public NotifyTaskCompletion<List<Book>> NotifyBooks { get; }
+        public BookService Service { get; set; } = new BookService();
+       
 
         public BooksPageViewModel()
         {
-            var service = new BookService();
-            NotifyBooks = new NotifyTaskCompletion<List<Book>>(service.GetBooksAsync());
+            
+            NotifyBooks = new NotifyTaskCompletion<List<Book>>(Service.GetBooksAsync());
+        }
+        public BooksPageViewModel(string uri)
+        {
+            
+            NotifyBooks = new NotifyTaskCompletion<List<Book>>(Service.GetBooksAsync(uri));
         }
     }
 }

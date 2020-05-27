@@ -1,4 +1,5 @@
 ﻿using Iceandfire.Models;
+using Iceandfire.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,5 +34,36 @@ namespace Iceandfire.Views
             var house = (House)e.ClickedItem;
             Frame.Navigate(typeof(HouseDetailsPage), house);
         }
+        //Load the next page. Call the DataContext ModelView instance's method.
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            HousesPageViewModel dc = (HousesPageViewModel)this.DataContext;
+            string uri = dc.Service.GetNextLink();
+            Frame.Navigate(typeof(HousesPage), uri);
+        }
+        //Load the first page. Call the DataContext ModelView instance's method.
+        private void FirstButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HousesPage));
+        }
+        //Load the last page. Call the DataContext ModelView instance's method.
+        private void LastButton_Click(object sender, RoutedEventArgs e)
+        {
+            HousesPageViewModel dc = (HousesPageViewModel)this.DataContext;
+            string uri = dc.Service.GetLastLink();
+            Frame.Navigate(typeof(HousesPage), uri);
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var url = (string)e.Parameter;
+            if (url != null)
+                DataContext = new HousesPageViewModel(url);
+            else
+            {
+                DataContext = new HousesPageViewModel();
+            }
+            base.OnNavigatedTo(e);
+        }
+
     }
 }

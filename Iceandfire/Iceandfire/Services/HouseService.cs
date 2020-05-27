@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace Iceandfire.Services
 {
-    class HouseService:Service
+    public class HouseService:Service
     {
 
         //Get all the houses async
         public async Task<List<House>> GetHousesAsync()
         {
             return await GetAsync<List<House>>(new Uri(serverUrl, "api/houses?pageSize=5"));
+        }
+        //Get all the houses async
+        public async Task<List<House>> GetHousesAsync(string uri)
+        {
+            return await GetAsync<List<House>>(new Uri(uri));
         }
         //Get the next page Houses async. It can be used after the first page loaded.
         public async Task<List<House>> GetNextHousesAsync(string uri)

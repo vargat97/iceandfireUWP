@@ -9,9 +9,6 @@
     xmlns:vm="using:Iceandfire.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.DataContext>
-        <vm:CharactersPageViewModel x:Name="CharactersPageVM"/>
-    </Page.DataContext>
 
     <Grid>
         <ListView ItemsSource="{Binding NotifyCharacters.Result}"  ItemClick="ListView_ItemClick"  IsItemClickEnabled="True">
@@ -29,5 +26,13 @@
             </ListView.ItemTemplate>
 
         </ListView>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" FlowDirection="LeftToRight">
+            <Button  Content="First page" HorizontalAlignment="left" Click="FirstButton_Click"   Height="74" Width="110" CornerRadius="3"/>
+            <Button  Content="Next page" Click="Button_Click"    Height="74" Width="110" CornerRadius="3"/>
+            <Button  Content="Last page" Click="LastButton_Click"   Height="74" Width="110" CornerRadius="3"/>
+
+
+        </StackPanel>
     </Grid>
 </Page>

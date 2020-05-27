@@ -11,12 +11,18 @@ namespace Iceandfire.ViewModels
     public class HousesPageViewModel
     {
         public NotifyTaskCompletion<List<House>> NotifyHouses { get; }
+        public HouseService Service { get; set; } = new HouseService();
 
         public HousesPageViewModel()
         {
-            var service = new HouseService();
-            NotifyHouses = new NotifyTaskCompletion<List<House>>(service.GetHousesAsync());
+            
+            NotifyHouses = new NotifyTaskCompletion<List<House>>(Service.GetHousesAsync());
         }
 
+        public HousesPageViewModel(string uri)
+        {
+
+            NotifyHouses = new NotifyTaskCompletion<List<House>>(Service.GetHousesAsync(uri));
+        }
     }
 }

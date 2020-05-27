@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Iceandfire.Services
 {
-    class CharacterService:Service
+    public class CharacterService:Service
     {
 
         //Get all the Characters async
@@ -23,7 +23,7 @@ namespace Iceandfire.Services
 
         public async Task<List<Character>> GetCharactersAsync(string uri)
         {
-            return await GetAsync<List<Character>>(new Uri(serverUrl,uri));
+            return await GetAsync<List<Character>>(new Uri(uri));
         }
         //Get a single Character by an URI
         public async Task<Character> GetCharacterAsync(string UriId)

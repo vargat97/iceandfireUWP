@@ -11,11 +11,17 @@ namespace Iceandfire.ViewModels
     public class CharactersPageViewModel
     {
         public NotifyTaskCompletion<List<Character>> NotifyCharacters { get; }
+        public CharacterService Service { get; set; } = new CharacterService();
 
         public CharactersPageViewModel()
         {
-            var service = new CharacterService();
-            NotifyCharacters = new NotifyTaskCompletion<List<Character>>(service.GetCharactersAsync());
+            
+            NotifyCharacters = new NotifyTaskCompletion<List<Character>>(Service.GetCharactersAsync());
+        }
+        public CharactersPageViewModel(string uri)
+        {
+
+            NotifyCharacters = new NotifyTaskCompletion<List<Character>>(Service.GetCharactersAsync(uri));
         }
     }
 }
