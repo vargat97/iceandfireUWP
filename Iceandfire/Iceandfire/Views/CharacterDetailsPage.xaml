@@ -7,80 +7,104 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <ScrollViewer>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0" Width="493">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0" Width="493">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+            <TextBlock Text="Name: " FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="{Binding NotifyCharacter.Result.name}"  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="4"></TextBlock>
 
-        <TextBlock Text="Name: " FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Text="{Binding NotifyCharacter.Result.name}"  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="4"></TextBlock>
+            <TextBlock Text="Culture: " FontWeight="Bold" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="{Binding NotifyCharacter.Result.culture}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-        <TextBlock Text="Culture: " FontWeight="Bold" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Text="{Binding NotifyCharacter.Result.culture}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="Titles:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            <ListView ItemsSource="{Binding NotifyCharacter.Result.titles }" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
+                <TextBlock Text="{Binding}"></TextBlock>
+            </ListView>
 
-        <TextBlock Text="Titles:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-        <ListView ItemsSource="{Binding NotifyCharacter.Result.titles }" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-            <TextBlock Text="{Binding}"></TextBlock>
-        </ListView>
+            <TextBlock Text="Born: "  Grid.Row="3" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+            <TextBlock Text="{Binding NotifyCharacter.Result.born}"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-        <TextBlock Text="Born: "  Grid.Row="3" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-        <TextBlock Text="{Binding NotifyCharacter.Result.born}"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="Died: "  Grid.Row="4" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+            <TextBlock Text="{Binding NotifyCharacter.Result.died}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-        <TextBlock Text="Died: "  Grid.Row="4" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-        <TextBlock Text="{Binding NotifyCharacter.Result.died}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
-
-        <TextBlock Text="Father: " Grid.Row="5" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-        <TextBlock Text="{Binding NotifyFather.Result.father}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
-
-        <TextBlock Text="Mother: " FontWeight="Bold" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-        <TextBlock Text="{Binding NotifyMother.Result.mother}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
-
-        <TextBlock Text="Spouse: " FontWeight="Bold" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-        <TextBlock Text="{Binding NotifySpouse.Result.spouse}"  Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
-
-        <TextBlock Text="Books: " FontWeight="Bold" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-        <Button Content="Show them" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" CornerRadius="3"/>
-
-        <TextBlock Text="Aliases:" FontWeight="Bold" Grid.Row="9" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-        <ListView ItemsSource="{Binding NotifyCharacter.Result.aliases }" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-            <TextBlock Text="{Binding}"></TextBlock>
-        </ListView>
-
-        <TextBlock Text="allegiances:" FontWeight="Bold" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-        <ListView ItemsSource="{Binding Character.allegiances}" Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-            <TextBlock Text="{Binding}"></TextBlock>
-        </ListView>
-
-        <TextBlock Text="Pov Books: " FontWeight="Bold" Grid.Row="11" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-        <Button Content="Show them" Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" CornerRadius="3"/>
+            <TextBlock Text="Father: " Grid.Row="5" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+            <TextBlock Text="{Binding NotifyCharacter.Result.fatherC.name}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
 
-        <TextBlock Text="Tv Series:" FontWeight="Bold" Grid.Row="12" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-        <ListView ItemsSource="{Binding NotifyCharacter.Result.tvSeries }" Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-            <TextBlock Text="{Binding}"></TextBlock>
-        </ListView>
+            <TextBlock Text="Mother: " FontWeight="Bold" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+            <TextBlock Text="{Binding NotifyCharacter.Result.motherC.name}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-        <TextBlock Text="Played by:" FontWeight="Bold" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-        <ListView ItemsSource="{Binding NotifyCharacter.Result.playedBy }" Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-            <TextBlock Text="{Binding}"></TextBlock>
-        </ListView>
-    </Grid>
+            <TextBlock Text="Spouse: " FontWeight="Bold" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+            <TextBlock Text="{Binding NotifyCharacter.Result.spouseC.name}" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+
+            <TextBlock Text="Books: " FontWeight="Bold" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+            <ListView ItemsSource="{Binding NotifyCharacter.Result.booksList}" ItemClick="ListView_ItemClick_Book" IsItemClickEnabled="True"  Grid.Row="8" Grid.Column="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="auto" Padding="5">
+                            <TextBlock Text="{Binding name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <TextBlock Text="Aliases:" FontWeight="Bold" Grid.Row="9" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            <ListView ItemsSource="{Binding NotifyCharacter.Result.aliases }" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
+                <TextBlock Text="{Binding}"></TextBlock>
+            </ListView>
+
+            <TextBlock Text="allegiances:" FontWeight="Bold" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            <ListView ItemsSource="{Binding NotifyCharacter.Result.allegiancesList}" ItemClick="ListView_ItemClick_House"  IsItemClickEnabled="True"  Grid.Row="10" Grid.Column="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="auto" Padding="5">
+                            <TextBlock Text="{Binding name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <TextBlock Text="Pov Books: " FontWeight="Bold" Grid.Row="11" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+            <ListView ItemsSource="{Binding NotifyCharacter.Result.povBookList}" ItemClick="ListView_ItemClick_Book" IsItemClickEnabled="True"  Grid.Row="11" Grid.Column="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="auto" Padding="5">
+                            <TextBlock Text="{Binding name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <TextBlock Text="Tv Series:" FontWeight="Bold" Grid.Row="12" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            <ListView ItemsSource="{Binding NotifyCharacter.Result.tvSeries }" Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
+                <TextBlock Text="{Binding}"></TextBlock>
+            </ListView>
+
+            <TextBlock Text="Played by:" FontWeight="Bold" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            <ListView ItemsSource="{Binding NotifyCharacter.Result.playedBy }" Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
+                <TextBlock Text="{Binding}"></TextBlock>
+            </ListView>
+        </Grid>
+    </ScrollViewer>
 </Page>

@@ -10,15 +10,18 @@ namespace Iceandfire.ViewModels
 {
     public class HousesPageViewModel
     {
+        //NotifyTaskCompletion property for propertychanged event
         public NotifyTaskCompletion<List<House>> NotifyHouses { get; }
+        //Service property, for ask the service links
         public HouseService Service { get; set; } = new HouseService();
 
+        // Constructor which set the properties
         public HousesPageViewModel()
         {
             
             NotifyHouses = new NotifyTaskCompletion<List<House>>(Service.GetHousesAsync());
         }
-
+        // Constructor which set the properties
         public HousesPageViewModel(string uri)
         {
 

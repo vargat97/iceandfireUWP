@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Iceandfire.Models
 {
-
-        public class Book
+    /*  Data class, represents a Book.
+     *  Pasted JSON as Class
+        */
+    public class Book
         {
             public string url { get; set; }
             public string name { get; set; }
@@ -20,5 +22,8 @@ namespace Iceandfire.Models
             public DateTime released { get; set; }
             public string[] characters { get; set; }
             public string[] povCharacters { get; set; }
-        }
+        // List for helping to get the character object from the book
+            public List<Character> charactersList { get; set; } = new List<Character>();
+            public List<Character> povCharactersList { get; set; } = new List<Character>();
+    }
 }

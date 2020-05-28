@@ -28,12 +28,21 @@ namespace Iceandfire.Views
         {
             this.InitializeComponent();
         }
-
+        // load the clicked house details page
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var house = (House)e.ClickedItem;
             Frame.Navigate(typeof(HouseDetailsPage), house);
         }
+        //handles the search event
+        private void Search_House_Click(object sender, RoutedEventArgs e)
+        {
+            string name = TextBox.Text;
+            var uri = "https://www.anapioficeandfire.com/" + "api/houses?name=" + name;
+
+            Frame.Navigate(typeof(HousesPage), uri);
+        }
+
         //Load the next page. Call the DataContext ModelView instance's method.
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -53,6 +62,7 @@ namespace Iceandfire.Views
             string uri = dc.Service.GetLastLink();
             Frame.Navigate(typeof(HousesPage), uri);
         }
+        //just for set the appropriate viewmodel
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var url = (string)e.Parameter;
@@ -63,6 +73,25 @@ namespace Iceandfire.Views
                 DataContext = new HousesPageViewModel();
             }
             base.OnNavigatedTo(e);
+        }
+        // 5 houses / page
+        private void hasteg5Click(Object sender, RoutedEventArgs e)
+        {
+            var uri = "https://www.anapioficeandfire.com/" + "api/houses?pageSize=" + 5;
+            Frame.Navigate(typeof(HousesPage), uri);
+
+        }
+        // 10 houses / page
+        private void hasteg10Click(Object sender, RoutedEventArgs e)
+        {
+            var uri = "https://www.anapioficeandfire.com/" + "api/houses?pageSize=" + 10;
+            Frame.Navigate(typeof(HousesPage), uri);
+        }
+        // 15 houses / page
+        private void hasteg15Click(Object sender, RoutedEventArgs e)
+        {
+            var uri = "https://www.anapioficeandfire.com/" + "api/houses?pageSize=" + 15;
+            Frame.Navigate(typeof(HousesPage), uri);
         }
 
     }

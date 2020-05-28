@@ -7,9 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
+
     <ScrollViewer>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0" Width="300">
+
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Width="464">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -31,62 +33,76 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
+            
+                <TextBlock Text="Name: " FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="{Binding NotifyHouse.Result.name}"  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="4"></TextBlock>
 
-            <TextBlock Text="Name: " FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Text="{Binding NotifyHouse.Result.name}"  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <TextBlock Text="Region: " FontWeight="Bold" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="{Binding NotifyHouse.Result.region}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-            <TextBlock Text="Region: " FontWeight="Bold" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Text="{Binding NotifyHouse.Result.region}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="Titles:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+                <ListView ItemsSource="{Binding NotifyHouse.Result.titles }" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
+                    <TextBlock Text="{Binding}"></TextBlock>
+                </ListView>
 
-            <TextBlock Text="Titles:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-            <ListView ItemsSource="{Binding NotifyHouse.Result.titles }" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-                <TextBlock Text="{Binding}"></TextBlock>
-            </ListView>
+                <TextBlock Text="Coat Of Arms: "  Grid.Row="3" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <TextBlock Text="{Binding NotifyHouse.Result.coatOfArms}"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-            <TextBlock Text="Coat Of Arms: "  Grid.Row="3" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-            <TextBlock Text="{Binding NotifyHouse.Result.coatOfArms}"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="words: "  Grid.Row="4" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <TextBlock Text="{Binding NotifyHouse.Result.words}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-            <TextBlock Text="words: "  Grid.Row="4" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-            <TextBlock Text="{Binding NotifyHouse.Result.words}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="Heir: " Grid.Row="5" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <Button Content="{Binding NotifyHeir.Result.name}" Click="Heir_Click" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
 
-            <TextBlock Text="Heir: " Grid.Row="5" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-            <TextBlock Text="{Binding NotifyHeir.Result.name}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="Current Lord: " FontWeight="Bold" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <Button Content="{Binding NotifyCurrentLord.Result.name}" Click="cLord_Click" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Padding="5"/>
 
-            <TextBlock Text="Current Lord: " FontWeight="Bold" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-            <TextBlock Text="{Binding NotifyCurrentLord.Result.name}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-            <TextBlock Text="Overlord: " FontWeight="Bold" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-            <TextBlock Text="{Binding NotifyOverLord.Result.name}"  Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="Overlord: " FontWeight="Bold" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <Button Content="{Binding NotifyHouse.Result.overLordC.name}" Click="OverLord_click" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"/>
 
-            <TextBlock Text="Founded: " FontWeight="Bold" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-            <TextBlock Text="{Binding NotifyHouse.Result.founded}"  Grid.Row="8" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="Founded: " FontWeight="Bold" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <TextBlock Text="{Binding NotifyHouse.Result.founded}"  Grid.Row="8" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
-            <TextBlock Text="Seats:" FontWeight="Bold" Grid.Row="9" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-            <ListView ItemsSource="{Binding NotifyHouse.Result.seats }" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-                <TextBlock Text="{Binding}"></TextBlock>
-            </ListView>
+                <TextBlock Text="Seats:" FontWeight="Bold" Grid.Row="9" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+                <ListView ItemsSource="{Binding NotifyHouse.Result.seats }" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
+                    <TextBlock Text="{Binding}"></TextBlock>
+                </ListView>
 
-            <TextBlock Text="Ancestral Weapons:" FontWeight="Bold" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-            <ListView ItemsSource="{Binding NotifyHouse.Result.ancestralWeapons}" Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-                <TextBlock Text="{Binding}"></TextBlock>
-            </ListView>
+                <TextBlock Text="Ancestral Weapons:" FontWeight="Bold" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+                <ListView ItemsSource="{Binding NotifyHouse.Result.ancestralWeapons}" Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
+                    <TextBlock Text="{Binding}"></TextBlock>
+                </ListView>
 
-            <TextBlock Text="Founder: " FontWeight="Bold" Grid.Row="11" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-            <TextBlock Text="{Binding NotifyFounder.Result.name}"  Grid.Row="11" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="Founder: " FontWeight="Bold" Grid.Row="11" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <Button Content="{Binding NotifyHouse.Result.founderC.name}" Click="Founder_Click" Grid.Row="11" Grid.Column="1" VerticalAlignment="Center"/>
 
-            <TextBlock Text="Cadet Branches:" FontWeight="Bold" Grid.Row="12" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-            <ListView ItemsSource="{Binding NotifyHouse.Result.cadetBranches }" Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-                <TextBlock Text="{Binding}"></TextBlock>
-            </ListView>
+                <TextBlock Text="Cadet Branches:" FontWeight="Bold" Grid.Row="12" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+                <ListView ItemsSource="{Binding NotifyHouse.Result.cadetBranchesList }" IsItemClickEnabled="True"  Grid.Row="12" Grid.Column="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Height="auto" Padding="5">
+                                <TextBlock Text="{Binding name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-            <TextBlock Text="Sworn Members:" FontWeight="Bold" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-            <ListView ItemsSource="{Binding NotifyHouse.Result.swornMembers}" Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" IsItemClickEnabled="False">
-                <TextBlock Text="{Binding}"></TextBlock>
-            </ListView>
+                <TextBlock Text="Sworn Members:" FontWeight="Bold" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+                <ListView ItemsSource="{Binding NotifyHouse.Result.swornMemberList}" ItemClick="Sworn_Click" IsItemClickEnabled="True"  Grid.Row="13" Grid.Column="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Height="auto" Padding="5">
+                                <TextBlock Text="{Binding name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-            <TextBlock Text="Died out: " FontWeight="Bold" Grid.Row="14" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
-            <TextBlock Text="{Binding NotifyHouse.Result.diedOut}"  Grid.Row="14" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
 
+                <TextBlock Text="Died out: " FontWeight="Bold" Grid.Row="14" Grid.Column="0" VerticalAlignment="Center" Margin="4"></TextBlock>
+                <TextBlock Text="{Binding NotifyHouse.Result.diedOut}"  Grid.Row="14" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+        
         </Grid>
     </ScrollViewer>
 </Page>

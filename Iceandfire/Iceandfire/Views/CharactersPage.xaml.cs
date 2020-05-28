@@ -28,11 +28,19 @@ namespace Iceandfire.Views
         {
             this.InitializeComponent();
         }
-
+        // Load the clicked Character details page
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var character = (Character)e.ClickedItem;
             Frame.Navigate(typeof(CharacterDetailsPage), character);
+        }
+        //Handles the searching event 
+        private void Search_Character_Click(object sender, RoutedEventArgs e)
+        {
+            string name = TextBox.Text;
+            var uri = "https://www.anapioficeandfire.com/" + "api/characters?name=" + name;
+
+            Frame.Navigate(typeof(CharactersPage), uri);
         }
         //Load the next page. Call the DataContext ModelView instance's method.
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -53,6 +61,7 @@ namespace Iceandfire.Views
             string uri = dc.Service.GetLastLink();
             Frame.Navigate(typeof(CharactersPage), uri);
         }
+        //just for set the appropriate view model
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var url = (string)e.Parameter;
@@ -63,6 +72,25 @@ namespace Iceandfire.Views
                 DataContext = new CharactersPageViewModel();
             }
             base.OnNavigatedTo(e);
+        }
+        // 5 character / page
+        private void hasteg5Click(Object sender, RoutedEventArgs e)
+        {
+            var uri = "https://www.anapioficeandfire.com/" + "api/Characters?page=12&pageSize=" + 5;
+            Frame.Navigate(typeof(CharactersPage), uri);
+
+        }
+        // 10 character / page
+        private void hasteg10Click(Object sender, RoutedEventArgs e)
+        {
+            var uri = "https://www.anapioficeandfire.com/" + "api/Characters?page=12&pageSize=" + 10;
+            Frame.Navigate(typeof(CharactersPage), uri);
+        }
+        // 15 character / page
+        private void hasteg15Click(Object sender, RoutedEventArgs e)
+        {
+            var uri = "https://www.anapioficeandfire.com/" + "api/Characters?page=12&pageSize=" + 15;
+            Frame.Navigate(typeof(CharactersPage), uri);
         }
     }
 }

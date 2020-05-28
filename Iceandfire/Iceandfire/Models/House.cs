@@ -27,5 +27,9 @@ namespace Iceandfire.Models
         public string[] ancestralWeapons { get; set; }
         public string[] cadetBranches { get; set; }
         public string[] swornMembers { get; set; }
+        public List<Character> swornMemberList { get; set; } = new List<Character>();
+        public List<Character> cadetBranchesList { get; set; } = new List<Character>();
+        public House overLordC { get; set; }
+        public Character founderC { get; set; }
     }
 }

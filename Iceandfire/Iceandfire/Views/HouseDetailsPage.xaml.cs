@@ -28,12 +28,54 @@ namespace Iceandfire.Views
         {
             this.InitializeComponent();
         }
-
+        // just for set the appropriate viewmodel
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var url = (House)e.Parameter;
             DataContext = new HouseDetailsPageViewModel(url);
             base.OnNavigatedTo(e);
+        }
+
+        // sworn member character click event handling
+        private void Sworn_Click(object sender, ItemClickEventArgs e)
+        {
+                var character = (Character)e.ClickedItem;
+                Frame.Navigate(typeof(CharacterDetailsPage), character);
+        }
+        // heir character clicked event handling
+        private void Heir_Click(object sender, RoutedEventArgs e)
+        {
+            HouseDetailsPageViewModel vm = (HouseDetailsPageViewModel)DataContext;
+            if(vm.NotifyHeir != null)
+            {
+                Character c = vm.NotifyHeir.Result;
+                Frame.Navigate(typeof(CharacterDetailsPage), c);
+            }
+
+        }
+        //current lord character clicked event handling
+        private void cLord_Click(object sender, RoutedEventArgs e)
+        {
+            HouseDetailsPageViewModel vm = (HouseDetailsPageViewModel)DataContext;
+            Character c = vm.NotifyCurrentLord.Result;
+            if (!c.url.Equals(""))
+                Frame.Navigate(typeof(CharacterDetailsPage), c);
+        }
+        //overlord house clicked event handling
+        private void OverLord_click(object sender, RoutedEventArgs e)
+        {
+            HouseDetailsPageViewModel vm = (HouseDetailsPageViewModel)DataContext;
+            House h = vm.NotifyHouse.Result.overLordC;
+            if (!h.url.Equals(""))
+                Frame.Navigate(typeof(HouseDetailsPage), h);
+        }
+        //founder character clicked event handling
+        private void Founder_Click(object sender, RoutedEventArgs e)
+        {
+            HouseDetailsPageViewModel vm = (HouseDetailsPageViewModel)DataContext;
+            Character c = vm.NotifyHouse.Result.founderC;
+            if (!c.url.Equals(""))
+                Frame.Navigate(typeof(CharacterDetailsPage), c);
         }
     }
 }

@@ -9,7 +9,9 @@
     xmlns:vm="using:Iceandfire.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="Yellow">
+
+
+    <Grid >
 
         <ListView ItemsSource="{Binding NotifyBooks.Result}"  ItemClick="ListView_ItemClick" IsItemClickEnabled="True">
             <ListView.ItemTemplate>
@@ -26,12 +28,22 @@
             </ListView.ItemTemplate>
 
         </ListView>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" FlowDirection="LeftToRight">
-            <Button  Content="First page" HorizontalAlignment="left" Click="FirstButton_Click"   Height="74" Width="110" CornerRadius="3"/>
-            <Button  Content="Next page" Click="Button_Click"    Height="74" Width="110" CornerRadius="3"/>
-            <Button  Content="Last page" Click="LastButton_Click"   Height="74" Width="110" CornerRadius="3"/>
+        <TextBlock Text="loading" Visibility="{Binding NotifyBooks.IsNotCompleted}"/>
+        <TextBlock Text="ERROR" Visibility="{Binding NotifyBooks.IsFaulted}"/>
 
-
+        <StackPanel VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" FlowDirection="LeftToRight">
+                <TextBox x:Name="TextBox" Text="Search by name" Height="40"/>
+                <Button  Content="Search" HorizontalAlignment="left"  Click="Search_Book_Click" Height="74" Width="110" CornerRadius="3"/>
+                <Button  Content="First page" HorizontalAlignment="left" Click="FirstButton_Click"   Height="74" Width="110" CornerRadius="3"/>
+                <Button  Content="Next page" Click="Button_Click"    Height="74" Width="110" CornerRadius="3"/>
+                <Button  Content="Last page" Click="LastButton_Click"   Height="74" Width="110" CornerRadius="3"/>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="left" FlowDirection="LeftToRight">
+                <Button Content="#5" Click="hasteg5Click"/>
+                <Button Content="#10" Click="hasteg10Click"/>
+                <Button Content="15" Click="hasteg15Click"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

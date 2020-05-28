@@ -13,26 +13,19 @@ namespace Iceandfire.ViewModels
     public class BookDetailsPageViewModel
     {
      
- 
-        public NotifyTaskCompletion<Book> NotifyBook {
-            get;
-           
-        }
-        public NotifyTaskCompletion<List<Character>> NotifyCharacters { get; private set; }
-        public NotifyTaskCompletion<List<Character>> NotifyPovCharacters { get; private set; }
+        //NotifyTaskCompletion property for propertychanged event
+        public NotifyTaskCompletion<Book> NotifyBook {get;}
+
 
         public BookDetailsPageViewModel() { }
 
+        // Constructor which set the property
         public BookDetailsPageViewModel(Book book)
         {
             var service = new BookService();
             var cService = new CharacterService();
-            NotifyBook = new NotifyTaskCompletion<Book>(service.GetBookAsync(book.url));
-            
-
-            NotifyCharacters = new NotifyTaskCompletion<List<Character>>(cService.GetCharactersAsync("api/characters?page=12&pageSize=50"));
-            NotifyPovCharacters = new NotifyTaskCompletion<List<Character>>(cService.GetCharactersAsync("api/characters?page=10&pageSize=50"));
-        }
+            NotifyBook = new NotifyTaskCompletion<Book>(service.GetBookAsync(book.url));   
+      }
 
 
 

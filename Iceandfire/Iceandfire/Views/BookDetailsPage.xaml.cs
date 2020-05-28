@@ -28,21 +28,25 @@ namespace Iceandfire.Views
         {           
             this.InitializeComponent();
         }
+        // Just for set the Page's viewmodel
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var url = (Book)e.Parameter;
-            DataContext = new BookDetailsPageViewModel(url);
-            base.OnNavigatedTo(e);
+                var url = (Book)e.Parameter;
+                DataContext = new BookDetailsPageViewModel(url);
+                base.OnNavigatedTo(e);
         }
 
+        //Character clicked event handler
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            var character = (Character)e.ClickedItem;
+            Frame.Navigate(typeof(CharacterDetailsPage), character);
         }
-
+        //povCharacter clicked event handler
         private void ListView_ItemClick_1(object sender, ItemClickEventArgs e)
         {
-
+            var character = (Character)e.ClickedItem;
+            Frame.Navigate(typeof(CharacterDetailsPage), character);
         }
     }
 }

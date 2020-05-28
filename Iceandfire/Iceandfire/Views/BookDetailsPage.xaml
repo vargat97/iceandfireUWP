@@ -9,9 +9,7 @@
     xmlns:vm="using:Iceandfire.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.DataContext>
-        <vm:BookDetailsPageViewModel x:Name="BookDetailsPageVM"/>
-    </Page.DataContext>
+
 
     <ScrollViewer>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0">
@@ -67,7 +65,7 @@
 
 
             <TextBlock Text="Characters: " FontWeight="Bold" Grid.Row="8" Grid.Column="0" VerticalAlignment="Top" Margin="4"></TextBlock>
-            <ListView ItemsSource="{Binding NotifyCharacters.Result}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True"  Grid.Row="9" Grid.Column="0">
+            <ListView ItemsSource="{Binding NotifyBook.Result.charactersList}" ItemClick="ListView_ItemClick" IsItemClickEnabled="True"  Grid.Row="9" Grid.Column="0">
                 <ListView.ItemTemplate>
 
                     <DataTemplate>
@@ -85,7 +83,7 @@
 
             <TextBlock Text="Pov Characters: " FontWeight="Bold" Grid.Row="8" Grid.Column="3" VerticalAlignment="Top"></TextBlock>
 
-            <ListView ItemsSource="{Binding NotifyPovCharacters.Result}"  ItemClick="ListView_ItemClick_1" IsItemClickEnabled="True"  Grid.Row="9" Grid.Column="3">
+            <ListView ItemsSource="{Binding NotifyBook.Result.povCharactersList}"  ItemClick="ListView_ItemClick_1" IsItemClickEnabled="True"  Grid.Row="9" Grid.Column="3">
                 <ListView.ItemTemplate>
 
                     <DataTemplate>

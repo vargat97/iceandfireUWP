@@ -26,5 +26,11 @@ namespace Iceandfire.Models
         public string[] povBooks { get; set; }
         public string[] tvSeries { get; set; }
         public string[] playedBy { get; set; }
+        public Character fatherC { get; set; }
+        public Character motherC { get; set; }
+        public Character spouseC { get; set; }
+        public List<House> allegiancesList { get; set; } = new List<House>();
+        public List<Book> booksList { get; set; } = new List<Book>();
+        public List<Book> povBookList { get; set; } = new List<Book>();
     }
 }
